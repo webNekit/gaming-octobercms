@@ -1,0 +1,11 @@
+plugin:
+    name: 'irina.gaming::lang.plugin.name'
+    description: 'irina.gaming::lang.plugin.description'
+    author: Irina
+    icon: wn-icon-adjust
+    replaces: {  }
+navigation:
+    main-menu-item:
+        label: Игры
+        url: irina/gaming/gaming
+        icon: icon-gamepad

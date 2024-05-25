@@ -7,18 +7,19 @@ function onStart()
         <header class="header">
             <div class="header-container">
                 <div class="header-row">
-                    <a href="index.html" class="logo">LOGO</a>
+                    <a href="{{ 'home'|page }}" class="logo">
+                        <img src="{{ this.theme.logo|media }}" class="logo-img" />
+                    </a>
                     <nav class="header-navigation">
                         <ul class="header-list">
-                            <li class="header-list__item header-list__item_active"><a href="index.html"
-                                    class="header-link">Home</a></li>
-                            <li class="header-list__item"><a href="about-us.html" class="header-link">About us</a></li>
+                            <li class="header-list__item header-list__item_active"><a href="{{ 'home'|page }}" class="header-link">Главная</a></li>
+                            <li class="header-list__item"><a href="about-us.html" class="{{ 'about'|page }}">О нас</a></li>
                             <li class="header-list__item"><a href="portfolio.html" class="header-link">Portfolio</a>
                             </li>
                             <li class="header-list__item"><a href="news.html" class="header-link">News</a></li>
                         </ul>
                     </nav>
-                    <button class="button header__button">Contact us</button>
+                    {# <button class="button header__button">Contact us</button> #}
                 </div>
                 <div class="header-body">
                     <div class="header-body__info">
@@ -26,18 +27,17 @@ function onStart()
                         <h1 class="h1 header-body__title">Work that we produce for our clients</h1>
                         <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             Ipsum has been the industry's standard.</p>
-                        <button class="button header-body__button">Get more details</button>
                     </div>
                     <div class="swiper header-swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide header-swiper-slide">
-                                <img class="header-body__main-img" src="images/joy_stick.webp" alt="">
-                                <img class="logo-technology logo-technology_first" src="images/unity.svg" alt="">
-                                <img class="logo-technology logo-technology_second" src="images/cry.svg" alt="">
-                                <img class="logo-technology logo-technology_third" src="images/unreal.svg" alt="">
+                                <img class="header-body__main-img" src={{ "assets/images/joy_stick.webp"|theme }} alt="">
+                                <img class="logo-technology logo-technology_first" src={{ "assets/images/unity.svg"|theme }} alt="">
+                                <img class="logo-technology logo-technology_second" src={{ "assets/images/cry.svg"|theme }} alt="">
+                                <img class="logo-technology logo-technology_third" src={{ "assets/images/unreal.svg"|theme }} alt="">
                             </div>
                             <div class="swiper-slide header-swiper-slide">
-                                <img class="header-body__main-img-2" src="images/swiper-background.webp" alt="">
+                                <img class="header-body__main-img-2" src={{ "assets/images/swiper-background.webp"|theme }} alt="">
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,4 @@
+title: Gaming
+modelClass: Irina\Gaming\Models\Gaming
+toolbar:
+    buttons: reorder_toolbar

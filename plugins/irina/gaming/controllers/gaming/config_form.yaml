@@ -1,0 +1,10 @@
+name: Gaming
+form: $/irina/gaming/models/gaming/fields.yaml
+modelClass: Irina\Gaming\Models\Gaming
+defaultRedirect: irina/gaming/gaming
+create:
+    redirect: 'irina/gaming/gaming/update/:id'
+    redirectClose: irina/gaming/gaming
+update:
+    redirect: irina/gaming/gaming
+    redirectClose: irina/gaming/gaming

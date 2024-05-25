@@ -1,120 +1,130 @@
-title = "Demonstration"
+title = "Главная страница"
 url = "/"
 layout = "default"
 ==
-<div class="jumbotron">
-    <div class="container">
-        {% content "welcome.htm" %}
-    </div>
-</div>
+<?php 
 
-<div class="container">
+    use Irina\Gaming\Models\Gaming;
+    function onStart() {
+        $this['games'] = Gaming::where('is_published', '1')
+                               ->orderBy('created_at', 'desc')
+                               ->take(8)
+                               ->get();
+    }
 
-    <div class="page-header">
-        <h2>Overview <small>Basic concepts</small></h2>
-    </div>
-    <p>
-        This page demonstrates the basic CMS features.
-        Usually each page built with Winter is a combination of a layout, page, partials and content blocks,
-        although in simple cases you can just use a page without anything else.
-    </p>
-
-    <!-- Layouts -->
-    <h3>Layouts</h3>
-    <p class="lead">
-        <i class="icon-th-large"></i> &nbsp; Layouts define the page scaffold.
-    </p>
-    <p>
-        The layout file <code>layouts/default.htm</code> defines the page scaffold &mdash;
-        everything that repeats on each page, such as the HTML, HEAD and BODY tags, StyleSheet and JavaScript references.
-    </p>
-    <p>The page menu and footer in the Demo theme are defined in the layout as well.</p>
-
-    <hr />
-
-    <!-- Pages -->
-    <h3>Pages</h3>
-    <p class="lead">
-        <i class="icon-copy"></i> &nbsp; Pages hold the content for each URL.
-    </p>
-    <p>
-        The page file <code>pages/home.htm</code> defines the page URL (<code>/</code> for this page) and the page content.
-        Pages are rendered inside layouts with this function that should be called in the layout code:
-    </p>
-    <pre>{{ "{% page %}" }}</pre>
-    <p>Using a layout for pages is optional &mdash; you can define everything right in the page file.</p>
-
-    <hr />
-
-    <!-- Partials -->
-    <h3>Partials</h3>
-    <p class="lead">
-        <i class="icon-tags"></i> &nbsp; Partials contain reusable chunks of HTML markup.
-    </p>
-    <p>
-        Partials are chunks of HTML defined in separate files that can be included anywhere.
-        Partials are rendered with:
-    </p>
-    <pre>{{ "{% partial \"partial-name\" %}" }}</pre>
-    <p>You may place partials inside folders too. In this example we placed the footer content to the <code>partials/site/footer.htm</code> partial.</p>
-    <pre>{{ "{% partial \"site/footer\" %}" }}</pre>
-    <p>Partials can be used inside pages, layouts or other partials.</p>
-
-    <hr />
-
-    <!-- Content blocks -->
-    <h3>Content blocks</h3>
-    <p class="lead">
-        <i class="icon-font"></i> &nbsp; Content blocks are text or HTML blocks that can be edited separately from the page or layout.
-    </p>
-    <p>
-        The introductory text used on this page is defined in the <code>content/welcome.htm</code> file.
-        Content blocks are defined and rendered with:
-        <pre>{{ "{% content \"content-name.htm\" %}" }}</pre>
-    </p>
-
-    <hr />
-
-    <!-- Placeholders -->
-    <h3>Placeholders</h3>
-    <p class="lead">
-        <i class="icon-bookmark"></i> &nbsp; Placeholders allow pages to inject content to a layout.
-    </p>
-    <p>
-        The common use is injecting page-specific links to StyleSheet or JavaScript files to the HEAD tag defined in the layout.
-        Placeholders are defined in the layout file and they have names so that they can be referred in the page.
-        Example:
-    </p>
-    <div class="row">
-        <div class="col-md-6">
-            <p>Layout file:</p>
-            <pre>{% content "placeholder/layout.txt" %}</pre>
-        </div>
-        <div class="col-md-6">
-            <p>Page file:</p>
-            <pre>{% content "placeholder/page.txt" %}</pre>
-        </div>
-    </div>
-
-    <hr />
-
-    <!-- Assets -->
-    <h3>Assets</h3>
-    <p class="lead">
-        <i class="icon-picture"></i> &nbsp; Assets are resource files like images and stylesheets.
-    </p>
-    <p>This theme stores its asset files (JavaScript, StyleSheet, images, fonts, etc) in the <code>themes/demo/assets</code> directory. This theme is also packaged with these useful 3rd party tools:</p>
-    <ul class="list-inline">
-        <li><a target="_blank" href="http://getbootstrap.com/">Twitter Bootstrap</a></li>
-        <li><a target="_blank" href="http://fontawesome.io/3.2.1/">Font Awesome</a></li>
-        <li><a target="_blank" href="http://www.google.com/fonts/specimen/Lato">Lato webfont</a></li>
-    </ul>
-    <p>You might prefer to remove them for your website implementation.</p>
-
-    <br />
-
-    <div class="text-center">
-        <p><a href="{{ 'ajax'|page }}" class="btn btn-lg btn-default">Continue to AJAX framework</a></p>
-    </div>
-
-</div>
+?>
+==
+    {{ games }}
+            <div class="main-container">
+                                <section class="trends">
+                    <div class="trends__row">
+                        <h3 class="h3">Игры, которые Вам понравятся!</h3>
+                        <button class="button-see-all">Все игры</button>
+                    </div>
+                    <div class="trends__block">
+                    {% for game in games %}
+                        {% set delay = loop.index0 * 100 %}
+                        <div class="trends__block-item" data-aos="fade-right"  data-aos-delay="{{ delay }}">
+                            <img src={{ game.image|media }} alt="" class="trends__block-img">
+                            <span class="trends__block-span">{{ game.platform }}</span>
+                            <p class="trends__block-text">{{ game.name }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                <section class="spider-man"> 
+                    <h3 class="h3 spider-man__sub-title" data-aos="fade-down"  data-aos-delay="200">{{ this.theme.about_title }}</h3>
+                    <p class="text spider-man__text" data-aos="fade-down"  data-aos-delay="300">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                    <div class="spider-man__picture" data-aos="fade-down"  data-aos-delay="400">
+                        <img src={{ "assets/images/spider-man.webp"|theme }} alt="">
+                    </div>
+                </section>
+            </div>
+            <section class="development">
+                <div class="main-container development-container">
+                    <h2 class="h2 development__h2">Lorem Ipsum is simply dummy text of the printing <br> and typesetting
+                        industry.</h2>
+                    <p class="text development__text">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        industry. Lorem Ipsum has been <br> the industry's standard dummy text ever since the 1500s,</p>
+                    <div class="development__block">
+                        <div class="development__item" data-aos="fade-right" data-aos-delay="400">
+                            <div class="development__img"><img src="images/technology1.svg" alt="" ></div>
+                            <p class="text development__block-text">Mobile Game Development</p>
+                            <img src="images/arrow.svg" alt="">
+                        </div>
+                        <div class="development__item" data-aos="fade-right" data-aos-delay="300">
+                            <div class="development__img"><img src="images/technology2.svg" alt="" ></div>
+                            <p class="text development__block-text">PC Game Development</p>
+                            <img src="images/arrow.svg" alt="">
+                        </div>
+                        <div class="development__item" data-aos="fade-left" data-aos-delay="300">
+                            <div class="development__img"><img src="images/technology3.svg" alt="" ></div>
+                            <p class="text development__block-text">PS4 Game Development</p>
+                            <img src="images/arrow.svg" alt="">
+                        </div>
+                        <div class="development__item" data-aos="fade-left" data-aos-delay="400">
+                            <div class="development__img"><img src="images/technology4.svg" alt=""></div>
+                            <p class="text development__block-text">AR/VR Solutions</p>
+                            <img src="images/arrow.svg" alt="">
+                        </div>
+                        <div class="development__item" data-aos="fade-right" data-aos-delay="100">
+                            <div class="development__img"><img src="images/technology5.svg" alt="" ></div>
+                            <p class="text development__block-text">AR/ VR design</p>
+                            <img src="images/arrow.svg" alt="">
+                        </div>
+                        <div class="development__item" data-aos="fade-left" data-aos-delay="100">
+                            <div class="development__img"><img src="images/technology6.svg" alt="" ></div>
+                            <p class="text development__block-text">3D Modelings</p>
+                            <img src="images/arrow.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="main-container">
+                <section class="projects">
+                    <h2 class="h2 projects__title">Our Recent Projects</h2>
+                    <p class="text projects__text">Lorem Ipsum is simply dummy text of the printing and typesetting <br>
+                        industry.</p>
+                    <div class="projects__block">
+                        <div class="projects__item" data-aos="fade-right"  data-aos-delay="250">
+                            <img src="images/project5.webp" alt="">
+                        </div>
+                        <div class="projects__item" data-aos="fade-down"  data-aos-delay="450">
+                            <img src="images/project6.webp" alt="">
+                        </div>
+                        <div class="projects__item" data-aos="fade-left"  data-aos-delay="650">
+                            <img src="images/project7.webp" alt="">
+                        </div>
+                        <div class="projects__item" data-aos="fade-right"  data-aos-delay="650">
+                            <img src="images/project8.webp" alt="">
+                        </div>
+                        <div class="projects__item" data-aos="fade-up"  data-aos-delay="450">
+                            <img src="images/project9.webp" alt="">
+                        </div>
+                        <div class="projects__item" data-aos="fade-left"  data-aos-delay="250">
+                            <img src="images/project10.webp" alt="">
+                        </div>
+                    </div>
+                    <button class="button-see-all"  data-aos="fade-up" data-aos-delay="350">see all</button>
+                </section>
+                <section class="subscribe">
+                    <h2 class="h2 ">Lorem Ipsum</h2>
+                    <p class="text subscribe__text">Lorem Ipsum is simply dummy text of the printing and typesetting
+                        <br> industry.
+                    </p>
+                    <div class="subcsribe-block">
+                        <div class="subscribe-block__flex">
+                            <h2 class="h2">Stay in the loop </h2>
+                            <p class="subcsribe-block__text">Subscribe to receive the latest news and updates about TDA.
+                                <br>
+                                We promise not to spam you!
+                            </p>
+                        </div>
+                        <form action="#" class="subscribe-form">
+                            <input class="subscribe-form__input" type="email" placeholder="Enter email address">
+                            <button class="button subscibe-form__button">Continue</button>
+                        </form>
+                    </div>
+                </section>
+            </div>

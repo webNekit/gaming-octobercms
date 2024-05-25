@@ -3,3 +3,17 @@ description: 'Demo Winter CMS theme. Demonstrates the basic concepts of the fron
 author: Winter CMS
 homepage: 'KozlovaIA'
 code: ''
+
+
+form:
+  fields:
+    logo:
+      label: 'Логотип сайта'
+      type: mediafinder
+      mode: image
+      imageWidth: 100
+      imageHeight: 100
+    about_title:
+      label: 'Заголовок'
+      comment: 'Введите заголовок для раздела - О нас'
+      default: 'О Скарабее'

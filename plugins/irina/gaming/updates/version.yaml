@@ -1,0 +1,8 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table irina_gaming_'
+    - builder_table_create_irina_gaming_.php
+1.0.3:
+    - 'Updated table irina_gaming_'
+    - builder_table_update_irina_gaming_.php
