@@ -34,46 +34,43 @@ layout = "default"
                 </section>
                 <section class="spider-man"> 
                     <h3 class="h3 spider-man__sub-title" data-aos="fade-down"  data-aos-delay="200">{{ this.theme.about_title }}</h3>
-                    <p class="text spider-man__text" data-aos="fade-down"  data-aos-delay="300">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,</p>
+                    <p class="text spider-man__text" data-aos="fade-down"  data-aos-delay="300">{{ this.theme.about_text }}</p>
                     <div class="spider-man__picture" data-aos="fade-down"  data-aos-delay="400">
-                        <img src={{ "assets/images/spider-man.webp"|theme }} alt="">
+                        <img class="spider-man__picture-img" src={{ this.theme.about_img|media }} alt="">
                     </div>
                 </section>
             </div>
-            <section class="development">
+            <section class="development" style="background-image: url({{ this.theme.equipment_img|media }})">
                 <div class="main-container development-container">
-                    <h2 class="h2 development__h2">Lorem Ipsum is simply dummy text of the printing <br> and typesetting
-                        industry.</h2>
-                    <p class="text development__text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been <br> the industry's standard dummy text ever since the 1500s,</p>
+                    <h2 class="h2 development__h2">{{ this.theme.equipment_title }}</h2>
+                    <p class="text development__text">{{ this.theme.equipment_text }}</p>
                     <div class="development__block">
-                        <div class="development__item" data-aos="fade-right" data-aos-delay="400">
+                        <div class="development__item" data-aos="fade-top" data-aos-delay="400">
                             <div class="development__img"><img src="images/technology1.svg" alt="" ></div>
                             <p class="text development__block-text">Mobile Game Development</p>
                             <img src="images/arrow.svg" alt="">
                         </div>
-                        <div class="development__item" data-aos="fade-right" data-aos-delay="300">
+                        <div class="development__item" data-aos="fade-top" data-aos-delay="300">
                             <div class="development__img"><img src="images/technology2.svg" alt="" ></div>
                             <p class="text development__block-text">PC Game Development</p>
                             <img src="images/arrow.svg" alt="">
                         </div>
-                        <div class="development__item" data-aos="fade-left" data-aos-delay="300">
+                        <div class="development__item" data-aos="fade-top" data-aos-delay="300">
                             <div class="development__img"><img src="images/technology3.svg" alt="" ></div>
                             <p class="text development__block-text">PS4 Game Development</p>
                             <img src="images/arrow.svg" alt="">
                         </div>
-                        <div class="development__item" data-aos="fade-left" data-aos-delay="400">
+                        <div class="development__item" data-aos="fade-top" data-aos-delay="400">
                             <div class="development__img"><img src="images/technology4.svg" alt=""></div>
                             <p class="text development__block-text">AR/VR Solutions</p>
                             <img src="images/arrow.svg" alt="">
                         </div>
-                        <div class="development__item" data-aos="fade-right" data-aos-delay="100">
+                        <div class="development__item" data-aos="fade-top" data-aos-delay="100">
                             <div class="development__img"><img src="images/technology5.svg" alt="" ></div>
                             <p class="text development__block-text">AR/ VR design</p>
                             <img src="images/arrow.svg" alt="">
                         </div>
-                        <div class="development__item" data-aos="fade-left" data-aos-delay="100">
+                        <div class="development__item" data-aos="fade-top" data-aos-delay="100">
                             <div class="development__img"><img src="images/technology6.svg" alt="" ></div>
                             <p class="text development__block-text">3D Modelings</p>
                             <img src="images/arrow.svg" alt="">

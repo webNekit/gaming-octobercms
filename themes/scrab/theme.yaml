@@ -6,14 +6,62 @@ code: ''
 
 
 form:
-  fields:
-    logo:
-      label: 'Логотип сайта'
-      type: mediafinder
-      mode: image
-      imageWidth: 100
-      imageHeight: 100
-    about_title:
-      label: 'Заголовок'
-      comment: 'Введите заголовок для раздела - О нас'
-      default: 'О Скарабее'
+  tabs:
+    fields:
+      logo:
+        label: 'Логотип сайта'
+        type: mediafinder
+        mode: image
+        imageWidth: 100
+        imageHeight: 100
+        tab: 'Настройки сайта'
+      banner_title:
+        label: 'Заголовок'
+        comment: 'Введите заголовок для баннера'
+        tab: 'Баннер'
+      banner_text: 
+        label: 'Текст'
+        component: 'Введите текст с описанием для баннера'
+        type: textarea
+        tab: 'Баннер'
+      banner_img:
+        label: 'Изображение баннера'
+        type: mediafinder
+        mode: image
+        imageWidth: 200
+        imageHeight: 200
+        tab: 'Баннер'
+      about_title:
+        label: 'Заголовок'
+        comment: 'Введите заголовок для раздела'
+        default: 'О Скарабее'
+        tab: 'Раздел - о нас'
+      about_text: 
+        label: 'Текст'
+        component: 'Введите текст с описанием'
+        type: textarea
+        tab: 'Раздел - о нас'
+      about_img:
+        label: 'Изображение'
+        type: mediafinder
+        mode: image
+        imageWidth: 200
+        imageHeight: 200
+        tab: 'Раздел - о нас'
+      equipment_title:
+        label: 'Заголовок'
+        comment: 'Введите заголовок для раздела'
+        default: 'Оборудоваие'
+        tab: 'Раздел - оборудование'
+      equipment_text: 
+        label: 'Текст'
+        component: 'Введите текст с описанием'
+        type: textarea
+        tab: 'Раздел - оборудование'
+      equipment_img:
+        label: 'Изображение'
+        type: mediafinder
+        mode: image
+        imageWidth: 200
+        imageHeight: 200
+        tab: 'Раздел - оборудование'

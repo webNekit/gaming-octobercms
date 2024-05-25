@@ -384,18 +384,19 @@
 }
 
 .spider-man__picture {
-    padding: 46px 0 0 0;
-    background-image: url(images/points.svg);
-    background-repeat: no-repeat;
-    background-position: 88% 0
+    padding-top: 52px;
+    width: 100%;
+    height: 630px;
 }
 
 .spider-man__picture img {
-    width: 100%
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
 .development {
-    background-image: url(images/background2.webp);
     background-repeat: no-repeat;
     background-size: 100% 100%
 }

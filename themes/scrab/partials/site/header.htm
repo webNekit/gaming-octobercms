@@ -24,20 +24,14 @@ function onStart()
                 <div class="header-body">
                     <div class="header-body__info">
                         <p class="header-body__text">3D game Dev </p>
-                        <h1 class="h1 header-body__title">Work that we produce for our clients</h1>
-                        <p class="text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                            Ipsum has been the industry's standard.</p>
+                        <h1 class="h1 header-body__title">{{ this.theme.banner_title }}</h1>
+                        <p class="text">{{ this.theme.banner_text }}</p>
                     </div>
                     <div class="swiper header-swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide header-swiper-slide">
-                                <img class="header-body__main-img" src={{ "assets/images/joy_stick.webp"|theme }} alt="">
-                                <img class="logo-technology logo-technology_first" src={{ "assets/images/unity.svg"|theme }} alt="">
-                                <img class="logo-technology logo-technology_second" src={{ "assets/images/cry.svg"|theme }} alt="">
-                                <img class="logo-technology logo-technology_third" src={{ "assets/images/unreal.svg"|theme }} alt="">
-                            </div>
-                            <div class="swiper-slide header-swiper-slide">
-                                <img class="header-body__main-img-2" src={{ "assets/images/swiper-background.webp"|theme }} alt="">
+                                {# <img class="header-body__main-img" src={{ item.image|media }} alt=""> #}
+                                <img class="header-body__main-img-2" src={{ this.theme.banner_img|media }} alt="">
                             </div>
                         </div>
                     </div>
