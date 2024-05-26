@@ -1,0 +1,10 @@
+name: Equipment
+form: $/irina/gaming/models/equipment/fields.yaml
+modelClass: Irina\Gaming\Models\Equipment
+defaultRedirect: irina/gaming/equipment
+create:
+    redirect: 'irina/gaming/equipment/update/:id'
+    redirectClose: irina/gaming/equipment
+update:
+    redirect: irina/gaming/equipment
+    redirectClose: irina/gaming/equipment

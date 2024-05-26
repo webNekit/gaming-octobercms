@@ -1,4 +1,41 @@
-title = "О нас"
+title = "О клубе"
 url = "/about"
 layout = "default"
 ==
+            <section class="services">
+                <div class="main-container">
+                    <div class="services-container">
+                        <h2 class="h2 sevices__text_center" data-aos="fade-down">{{ this.theme.stat_title }}</h2>
+                        <p class="text sevices__text" data-aos="fade-down">{{ this.theme.stat_text }}</p>
+                        <div class="services__block" data-aos="fade-up">
+                            <div class="services__block-item">
+                                <div class="services__block-flex">
+                                    <p class="h4">{{ this.theme.stat_cout_1 }}+</p>
+                                    <p class="services__block-text">{{ this.theme.stat_title_1 }}</p>
+                                </div>
+                            </div>
+                            <span class="vertical-line"></span>
+                            <div class="services__block-item">
+                                <div class="services__block-flex">
+                                    <p class="h4">{{ this.theme.stat_cout_2 }}+</p>
+                                    <p class="services__block-text">{{ this.theme.stat_title_2 }}</p>
+                                </div>
+                            </div>
+                            <span class="vertical-line"></span>
+                            <div class="services__block-item">
+                                <div class="services__block-flex">
+                                    <p class="h4">{{ this.theme.stat_cout_3 }}+</p>
+                                    <p class="services__block-text">{{ this.theme.stat_title_3 }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+                            <section class="spider-man"> 
+                    <h3 class="h3 spider-man__sub-title" data-aos="fade-down"  data-aos-delay="200">{{ this.theme.about_title }}</h3>
+                    <p class="text spider-man__text" data-aos="fade-down"  data-aos-delay="300">{{ this.theme.about_text }}</p>
+                    <div class="spider-man__picture" data-aos="fade-down"  data-aos-delay="400">
+                        <img class="spider-man__picture-img" src={{ this.theme.about_img|media }} alt="">
+                    </div>
+                </section>

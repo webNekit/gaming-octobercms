@@ -1,0 +1,14 @@
+fields:
+    name:
+        label: 'ФИО Клиента'
+        span: full
+        type: text
+    text:
+        label: Отзыв
+        size: ''
+        span: full
+        type: textarea
+    is_published:
+        label: Отображение
+        span: auto
+        type: switch

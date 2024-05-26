@@ -1,0 +1,12 @@
+list: $/irina/gaming/models/equipment/columns.yaml
+modelClass: Irina\Gaming\Models\Equipment
+title: Equipment
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'irina/gaming/equipment/update/:id'

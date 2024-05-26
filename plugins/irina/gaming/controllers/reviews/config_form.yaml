@@ -1,0 +1,10 @@
+name: Reviews
+form: $/irina/gaming/models/reviews/fields.yaml
+modelClass: Irina\Gaming\Models\Reviews
+defaultRedirect: irina/gaming/reviews
+create:
+    redirect: 'irina/gaming/reviews/update/:id'
+    redirectClose: irina/gaming/reviews
+update:
+    redirect: irina/gaming/reviews
+    redirectClose: irina/gaming/reviews

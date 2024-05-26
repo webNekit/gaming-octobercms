@@ -1,0 +1,16 @@
+columns:
+    id:
+        label: id
+        type: number
+    name:
+        label: Название
+        type: text
+    price:
+        label: Цена
+        type: text
+    variant:
+        label: Вариант
+        type: text
+    created_at:
+        label: 'Дата создания'
+        type: datetime

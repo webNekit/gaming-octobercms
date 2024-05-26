@@ -1,0 +1,12 @@
+list: $/irina/gaming/models/reviews/columns.yaml
+modelClass: Irina\Gaming\Models\Reviews
+title: Reviews
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+recordsPerPage: 20
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'irina/gaming/reviews/update/:id'

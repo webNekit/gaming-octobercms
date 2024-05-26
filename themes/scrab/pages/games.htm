@@ -2,3 +2,35 @@ title = "Все игры"
 url = "/games"
 layout = "default"
 ==
+<?php 
+
+    use Irina\Gaming\Models\Gaming;
+    use Irina\Gaming\Models\Equipment;
+    use Irina\Gaming\Models\Price;
+    use Irina\Gaming\Models\Reviews;
+    function onStart() {
+        // get games
+        $this['games'] = Gaming::where('is_published', '1')
+                               ->orderBy('created_at', 'desc')
+                               ->get();
+    }
+
+?>
+==
+<div class="main-container">
+                <section class="trends">
+                    <div class="trends__row">
+                        <h3 class="h3">Каталог игр</h3>
+                    </div>
+                    <div class="trends__block">
+                    {% for game in games %}
+                        {% set delay = loop.index0 * 100 %}
+                        <div class="trends__block-item" data-aos="fade-right"  data-aos-delay="{{ delay }}">
+                            <img src={{ game.image|media }} alt="" class="trends__block-img">
+                            <span class="trends__block-span">{{ game.platform }}</span>
+                            <p class="trends__block-text">{{ game.name }}</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </section>
+</div>

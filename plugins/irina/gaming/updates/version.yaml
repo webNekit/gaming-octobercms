@@ -6,3 +6,15 @@
 1.0.3:
     - 'Updated table irina_gaming_'
     - builder_table_update_irina_gaming_.php
+1.0.4:
+    - 'Created table irina_gaming_equipment'
+    - builder_table_create_irina_gaming_equipment.php
+1.0.5:
+    - 'Created table irina_gaming_price'
+    - builder_table_create_irina_gaming_price.php
+1.0.6:
+    - 'Created table irina_gaming_reviews'
+    - builder_table_create_irina_gaming_reviews.php
+1.0.7:
+    - 'Updated table irina_gaming_reviews'
+    - builder_table_update_irina_gaming_reviews.php

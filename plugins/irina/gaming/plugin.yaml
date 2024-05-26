@@ -9,3 +9,15 @@ navigation:
         label: Игры
         url: irina/gaming/gaming
         icon: icon-gamepad
+    main-menu-item2:
+        label: 'Оборудование и залы'
+        url: irina/gaming/equipment
+        icon: icon-desktop
+    main-menu-item3:
+        label: Прайс
+        url: irina/gaming/price
+        icon: icon-money
+    main-menu-item4:
+        label: Отзывы
+        url: irina/gaming/reviews
+        icon: icon-bullhorn

@@ -1,0 +1,21 @@
+fields:
+    name:
+        label: Название
+        span: auto
+        type: text
+    variant:
+        label: 'Раскрывающийся список'
+        options:
+            vip: vip
+            standart: standart
+        showSearch: true
+        span: auto
+        type: dropdown
+    price:
+        label: Цена
+        span: auto
+        type: text
+    is_published:
+        label: Отображение
+        span: auto
+        type: switch

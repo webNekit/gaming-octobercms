@@ -1,0 +1,10 @@
+name: Price
+form: $/irina/gaming/models/price/fields.yaml
+modelClass: Irina\Gaming\Models\Price
+defaultRedirect: irina/gaming/price
+create:
+    redirect: 'irina/gaming/price/update/:id'
+    redirectClose: irina/gaming/price
+update:
+    redirect: irina/gaming/price
+    redirectClose: irina/gaming/price

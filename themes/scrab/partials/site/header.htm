@@ -13,24 +13,19 @@ function onStart()
                     <nav class="header-navigation">
                         <ul class="header-list">
                             <li class="header-list__item header-list__item_active"><a href="{{ 'home'|page }}" class="header-link">Главная</a></li>
-                            <li class="header-list__item"><a href="about-us.html" class="{{ 'about'|page }}">О нас</a></li>
-                            <li class="header-list__item"><a href="portfolio.html" class="header-link">Portfolio</a>
-                            </li>
-                            <li class="header-list__item"><a href="news.html" class="header-link">News</a></li>
+                            <li class="header-list__item"><a href="{{ 'about'|page }}" class="header-link">О клубе</a></li>
+                            <li class="header-list__item"><a href="{{ 'games'|page }}" class="header-link">Каталог игр</a></li>
                         </ul>
                     </nav>
-                    {# <button class="button header__button">Contact us</button> #}
                 </div>
                 <div class="header-body">
                     <div class="header-body__info">
-                        <p class="header-body__text">3D game Dev </p>
                         <h1 class="h1 header-body__title">{{ this.theme.banner_title }}</h1>
                         <p class="text">{{ this.theme.banner_text }}</p>
                     </div>
                     <div class="swiper header-swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide header-swiper-slide">
-                                {# <img class="header-body__main-img" src={{ item.image|media }} alt=""> #}
                                 <img class="header-body__main-img-2" src={{ this.theme.banner_img|media }} alt="">
                             </div>
                         </div>

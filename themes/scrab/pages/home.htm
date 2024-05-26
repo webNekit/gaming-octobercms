@@ -1,25 +1,47 @@
 title = "Главная страница"
 url = "/"
 layout = "default"
-==
-<?php 
+is_hidden = 0
 
-    use Irina\Gaming\Models\Gaming;
+[contactForm]
+==
+<?php
+use Irina\Gaming\Models\Gaming;
+    use Irina\Gaming\Models\Equipment;
+    use Irina\Gaming\Models\Price;
+    use Irina\Gaming\Models\Reviews;
     function onStart() {
+        // get games
         $this['games'] = Gaming::where('is_published', '1')
                                ->orderBy('created_at', 'desc')
                                ->take(8)
                                ->get();
+        // get Equipment
+        $this['equipments'] = Equipment::where('is_published', '1')
+                               ->orderBy('created_at', 'desc')
+                               ->get();
+        // get prices
+        $this['pricesVip'] = Price::where('is_published', '1')
+                                ->where('variant', 'vip')
+                                ->orderBy('created_at', 'desc')
+                                ->take(8)
+                                ->get();
+        $this['pricesStandart'] = Price::where('is_published', '1')
+                                ->where('variant', 'standart')
+                                ->orderBy('created_at', 'desc')
+                                ->get();
+        // get reviews
+        $this['reviews'] = Reviews::where('is_published', '1')
+                               ->orderBy('created_at', 'desc')
+                               ->get();
     }
-
 ?>
 ==
-    {{ games }}
-            <div class="main-container">
-                                <section class="trends">
+<div class="main-container">
+                <section class="trends">
                     <div class="trends__row">
                         <h3 class="h3">Игры, которые Вам понравятся!</h3>
-                        <button class="button-see-all">Все игры</button>
+                        <a href="{{ 'games'|page }}" class="button-see-all">Все игры</a>
                     </div>
                     <div class="trends__block">
                     {% for game in games %}
@@ -45,83 +67,93 @@ layout = "default"
                     <h2 class="h2 development__h2">{{ this.theme.equipment_title }}</h2>
                     <p class="text development__text">{{ this.theme.equipment_text }}</p>
                     <div class="development__block">
+                    {% for equipment in equipments %}
                         <div class="development__item" data-aos="fade-top" data-aos-delay="400">
-                            <div class="development__img"><img src="images/technology1.svg" alt="" ></div>
-                            <p class="text development__block-text">Mobile Game Development</p>
-                            <img src="images/arrow.svg" alt="">
+                            <div class="development__img">
+                                <img src={{ equipment.icon|media }} alt="" >
+                            </div>
+                            <p class="text development__block-text">{{ equipment.name }}</p>
                         </div>
-                        <div class="development__item" data-aos="fade-top" data-aos-delay="300">
-                            <div class="development__img"><img src="images/technology2.svg" alt="" ></div>
-                            <p class="text development__block-text">PC Game Development</p>
-                            <img src="images/arrow.svg" alt="">
-                        </div>
-                        <div class="development__item" data-aos="fade-top" data-aos-delay="300">
-                            <div class="development__img"><img src="images/technology3.svg" alt="" ></div>
-                            <p class="text development__block-text">PS4 Game Development</p>
-                            <img src="images/arrow.svg" alt="">
-                        </div>
-                        <div class="development__item" data-aos="fade-top" data-aos-delay="400">
-                            <div class="development__img"><img src="images/technology4.svg" alt=""></div>
-                            <p class="text development__block-text">AR/VR Solutions</p>
-                            <img src="images/arrow.svg" alt="">
-                        </div>
-                        <div class="development__item" data-aos="fade-top" data-aos-delay="100">
-                            <div class="development__img"><img src="images/technology5.svg" alt="" ></div>
-                            <p class="text development__block-text">AR/ VR design</p>
-                            <img src="images/arrow.svg" alt="">
-                        </div>
-                        <div class="development__item" data-aos="fade-top" data-aos-delay="100">
-                            <div class="development__img"><img src="images/technology6.svg" alt="" ></div>
-                            <p class="text development__block-text">3D Modelings</p>
-                            <img src="images/arrow.svg" alt="">
-                        </div>
+                    {% endfor %}
                     </div>
                 </div>
             </section>
             <div class="main-container">
                 <section class="projects">
-                    <h2 class="h2 projects__title">Our Recent Projects</h2>
-                    <p class="text projects__text">Lorem Ipsum is simply dummy text of the printing and typesetting <br>
-                        industry.</p>
+                    <h2 class="h2 projects__title">{{ this.theme.interior_title }}</h2>
+                    <p class="text projects__text">{{ this.theme.interior_text }}</p>
                     <div class="projects__block">
-                        <div class="projects__item" data-aos="fade-right"  data-aos-delay="250">
-                            <img src="images/project5.webp" alt="">
-                        </div>
-                        <div class="projects__item" data-aos="fade-down"  data-aos-delay="450">
-                            <img src="images/project6.webp" alt="">
-                        </div>
-                        <div class="projects__item" data-aos="fade-left"  data-aos-delay="650">
-                            <img src="images/project7.webp" alt="">
-                        </div>
-                        <div class="projects__item" data-aos="fade-right"  data-aos-delay="650">
-                            <img src="images/project8.webp" alt="">
-                        </div>
-                        <div class="projects__item" data-aos="fade-up"  data-aos-delay="450">
-                            <img src="images/project9.webp" alt="">
-                        </div>
-                        <div class="projects__item" data-aos="fade-left"  data-aos-delay="250">
-                            <img src="images/project10.webp" alt="">
-                        </div>
+                        {% for item in this.theme.interior_imgages %}
+                            <div class="projects__item" data-aos="fade-right"  data-aos-delay="250">
+                                <img src={{ item.image|media }} alt="">
+                            </div>
+                        {% endfor %}
                     </div>
-                    <button class="button-see-all"  data-aos="fade-up" data-aos-delay="350">see all</button>
                 </section>
+                <section class="work">
+                    <h3 class="h3">Цены</h3>
+                    <div class="work__block">
+                        {% for price in pricesStandart %}
+                            <div class="work__item" data-aos="fade-right" data-aos-delay="100"> 
+                                <div class="text work__element work__element_purple">{{ price.variant }}</div>
+                                <h4 class="h4 work__item-headline">{{ price.name }}</h4>
+                                <p class="text work__price">{{ price.price }} руб.</p>
+                            </div>
+                        {% endfor %}
+                        {% for price in pricesVip %}
+                            <div class="work__item" data-aos="fade-right" data-aos-delay="100"> 
+                                <div class="text work__element work__element_purple">{{ price.variant }}</div>
+                                <h4 class="h4 work__item-headline">{{ price.name }}</h4>
+                                <p class="text work__price">{{ price.price }} руб.</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                </section>
+                <section class="trusted-swiper">
+                <div class="main-container">
+                    <div class="trusted-swiper__flex" data-aos="fade-down">
+                        <h2 class="h2 trusted-swiper__text">{{ this.theme.reviews_title }}</h2>
+                        <p class="text text_small trusted-swiper__text">{{ this.theme.reviews_text }}</p>
+
+                        <div class="swiper portfolio-swiper">
+                            <div class="swiper-wrapper">
+                            {% for review in reviews %}
+                                <div class="swiper-slide swiper-slide-element">
+                                    <div class="trusted-swiper__item">
+                                        <div class="trusted-swiper__user-info">
+                                            <div class="trusted-swiper__user">
+                                                <p class="trusted-swiper__user-name">{{ review.name }}</p>
+                                            </div>
+                                        </div>
+                                        <p class="trusted-swiper__user-rating">{{ review.created_at|date("d-m-Y") }}</p>
+                                    </div>
+                                    <div class="text text_small">{{ review.text }}</div>
+                                </div>
+                            {% endfor %}
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="navigation-block">
+                                <div class="swiper-button-next"><img src={{ "assets/images/icons/arrow-white.svg"|theme }} alt=""></div>
+                                <div class="swiper-button-prev"><img src={{ "assets/images/icons/arrow-orange.svg"|theme }} alt=""></div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
                 <section class="subscribe">
-                    <h2 class="h2 ">Lorem Ipsum</h2>
-                    <p class="text subscribe__text">Lorem Ipsum is simply dummy text of the printing and typesetting
-                        <br> industry.
-                    </p>
                     <div class="subcsribe-block">
                         <div class="subscribe-block__flex">
-                            <h2 class="h2">Stay in the loop </h2>
-                            <p class="subcsribe-block__text">Subscribe to receive the latest news and updates about TDA.
-                                <br>
-                                We promise not to spam you!
-                            </p>
+                            <h2 class="h2">Остались вопросы?</h2>
+                            <p class="subcsribe-block__text">Оставьте свои контакты и наши администраторы свяжутся с вами!</p>
                         </div>
-                        <form action="#" class="subscribe-form">
-                            <input class="subscribe-form__input" type="email" placeholder="Enter email address">
-                            <button class="button subscibe-form__button">Continue</button>
-                        </form>
+                        <div class="subscribe-form">
+                                {% component 'contactForm' %}
+                            	{# <input name="email" class="subscribe-form__input" type="email" placeholder="Введите адрес эл.почты">
+                                <button class="button subscibe-form__button">Продолжить</button> #}
+                            
+                        </div>
                     </div>
                 </section>
             </div>

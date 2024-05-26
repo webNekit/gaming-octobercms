@@ -1,0 +1,4 @@
+title: Price
+modelClass: Irina\Gaming\Models\Price
+toolbar:
+    buttons: reorder_toolbar

@@ -1,0 +1,4 @@
+title: Equipment
+modelClass: Irina\Gaming\Models\Equipment
+toolbar:
+    buttons: reorder_toolbar

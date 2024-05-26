@@ -15,6 +15,25 @@ form:
         imageWidth: 100
         imageHeight: 100
         tab: 'Настройки сайта'
+      contact_phone:
+        label: 'Номер телефона'
+        comment: 'Введите номер телефона'
+        tab: 'Настройки сайта'
+      contact_address:
+        label: 'Адрес'
+        comment: 'Введите адрес клуба'
+        tab: 'Настройки сайта'
+      contact_socials:
+        label: 'Социальные сети'
+        type: repeater
+        titleFfom: name
+        form: 
+          fields:
+            name:
+              label: 'Социальная сеть'
+            url:
+              label: 'Ссылка на соц.сеть'
+        tab: 'Настройки сайта'
       banner_title:
         label: 'Заголовок'
         comment: 'Введите заголовок для баннера'
@@ -65,3 +84,76 @@ form:
         imageWidth: 200
         imageHeight: 200
         tab: 'Раздел - оборудование'
+      interior_title:
+        label: 'Заголовок'
+        comment: 'Введите заголовок для раздела'
+        default: 'Игровые залы'
+        tab: 'Раздел - интерьер'
+      interior_text: 
+        label: 'Текст'
+        component: 'Введите текст с описанием'
+        type: textarea
+        tab: 'Раздел - интерьер'
+      interior_imgages:
+        type: repeater
+        label: 'Фото зала'
+        titleFfom: name
+        form: 
+          fields:
+            image:
+              label: 'Изображение'
+              type: mediafinder
+              mode: image
+              imageWidth: 200
+              imageHeight: 200
+        tab: 'Раздел - интерьер'
+      reviews_title:
+        label: 'Заголовок'
+        comment: 'Введите заголовок для раздела'
+        default: 'Игровые залы'
+        tab: 'Раздел - отзывы'
+      reviews_text: 
+        label: 'Текст'
+        component: 'Введите текст с описанием'
+        type: textarea
+        tab: 'Раздел - отзывы'
+      stat_title:
+        label: 'Заголовок'
+        comment: 'Введите заголовок для раздела'
+        default: 'Наш клуб в цифрах'
+        tab: 'Раздел - статистика клуба'
+      stat_text: 
+        label: 'Текст'
+        component: 'Введите текст с описанием'
+        type: textarea
+        tab: 'Раздел - статистика клуба'
+      stat_cout_1:
+        label: 'Число'
+        component: 'Введите число'
+        default: '90'
+        tab: 'Раздел - статистика клуба'
+      stat_title_1:
+        label: 'Название'
+        component: 'Введите название статистики'
+        default: 'Клиентов'
+        tab: 'Раздел - статистика клуба'
+      stat_cout_2:
+        label: 'Число'
+        component: 'Введите число'
+        default: '25'
+        tab: 'Раздел - статистика клуба'
+      stat_title_2:
+        label: 'Название'
+        component: 'Введите название статистики'
+        default: 'Игровых ПК'
+        tab: 'Раздел - статистика клуба'
+      stat_cout_3:
+        label: 'Число'
+        component: 'Введите число'
+        default: '2'
+        tab: 'Раздел - статистика клуба'
+      stat_title_3:
+        label: 'Название'
+        component: 'Введите название статистики'
+        default: 'VIP - зала'
+        tab: 'Раздел - статистика клуба'

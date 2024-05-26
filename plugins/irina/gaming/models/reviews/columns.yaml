@@ -1,0 +1,13 @@
+columns:
+    id:
+        label: код
+        type: number
+    name:
+        label: 'Имя клиента'
+        type: text
+    text:
+        label: Отзыв
+        type: text
+    created_at:
+        label: 'Дата создания'
+        type: datetime
