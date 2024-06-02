@@ -68,7 +68,7 @@ use Irina\Gaming\Models\Gaming;
                     <p class="text development__text">{{ this.theme.equipment_text }}</p>
                     <div class="development__block">
                     {% for equipment in equipments %}
-                        <div class="development__item" data-aos="fade-top" data-aos-delay="400">
+                        <div class="development__item" data-aos="fade-top">
                             <div class="development__img">
                                 <img src={{ equipment.icon|media }} alt="" >
                             </div>
@@ -84,7 +84,7 @@ use Irina\Gaming\Models\Gaming;
                     <p class="text projects__text">{{ this.theme.interior_text }}</p>
                     <div class="projects__block">
                         {% for item in this.theme.interior_imgages %}
-                            <div class="projects__item" data-aos="fade-right"  data-aos-delay="250">
+                            <div class="projects__item" data-aos="fade-right">
                                 <img src={{ item.image|media }} alt="">
                             </div>
                         {% endfor %}
